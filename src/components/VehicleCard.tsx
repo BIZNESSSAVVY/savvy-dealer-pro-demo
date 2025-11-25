@@ -1,12 +1,10 @@
 // src/components/VehicleCard.tsx
 
-import { Image, Gauge, Calendar, Fuel, Car, Plus, Maximize, Sparkles } from "lucide-react";
+import { Image, Gauge, Calendar, Fuel, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-
-// Import the centralized Vehicle interface from the types folder
 import { Vehicle } from "@/types/vehicle";
 
 interface VehicleCardProps {
@@ -28,51 +26,40 @@ const formatMileage = (mileage: number) => {
 };
 
 const VehicleCard = ({ vehicle, onViewDetails, onScheduleTest }: VehicleCardProps) => {
-
-  // Ensure 'images' is an array, defaulting to empty array if undefined or null
   const images = vehicle.images ?? []; 
   const imageUrls = images.length > 0 ? images : ["/placeholder-car.jpg"];
 
   return (
-    <Card className="group flex flex-col overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-900/30 bg-slate-900 border border-slate-800 hover:border-cyan-500/50">
+    <Card className="overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
       <CardHeader className="p-0 relative">
         <Carousel className="w-full" opts={{ loop: true }}>
           <CarouselContent>
             {imageUrls.map((url, index) => (
               <CarouselItem key={index}>
-                <div className="relative aspect-[3/2] w-full bg-slate-950 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60 z-10"></div>
+                <div className="relative aspect-[3/2] w-full bg-gray-100">
                   <img
                     src={url}
                     alt={`${vehicle.make} ${vehicle.model} image ${index + 1}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                     onError={(e) => {
                       e.currentTarget.src = "/placeholder-car.jpg";
                     }}
                   />
-                  {/* Image counter */}
                   {images.length > 0 && (
-                    <Badge className="absolute bottom-3 right-3 bg-slate-900/90 backdrop-blur-sm text-cyan-400 hover:bg-slate-900 border border-cyan-500/30 z-20">
+                    <Badge className="absolute bottom-2 right-2 bg-black/70 text-white">
                       <Image className="h-3 w-3 mr-1" />
                       {index + 1} / {images.length}
                     </Badge>
                   )}
                   
-                  {/* Stock Number Badge - Top Left */}
                   {vehicle.stockNumber && (
-                    <Badge className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm text-slate-300 font-mono text-xs border border-slate-700 hover:bg-slate-900 hover:border-cyan-500/50 transition-all z-20">
+                    <Badge className="absolute top-2 left-2 bg-white text-gray-900 font-mono">
                       #{vehicle.stockNumber}
                     </Badge>
                   )}
                   
-                  {/* New/Featured Badges - Top Right */}
                   {(vehicle.isNew || vehicle.isFeatured) && (
-                    <Badge className={`absolute top-3 right-3 z-20 ${
-                      vehicle.isNew 
-                        ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' 
-                        : 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white'
-                    } hover:opacity-90 shadow-lg flex items-center gap-1`}>
-                      <Sparkles className="h-3 w-3" />
+                    <Badge className={`absolute top-2 right-2 ${vehicle.isNew ? 'bg-blue-600' : 'bg-orange-500'} text-white`}>
                       {vehicle.isNew ? 'New Arrival' : 'Featured'}
                     </Badge>
                   )}
@@ -82,64 +69,52 @@ const VehicleCard = ({ vehicle, onViewDetails, onScheduleTest }: VehicleCardProp
           </CarouselContent>
           {imageUrls.length > 1 && (
             <>
-              <CarouselPrevious className="left-2 bg-slate-900/90 backdrop-blur-sm border-slate-700 hover:bg-cyan-500 hover:border-cyan-500 text-white" />
-              <CarouselNext className="right-2 bg-slate-900/90 backdrop-blur-sm border-slate-700 hover:bg-cyan-500 hover:border-cyan-500 text-white" />
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
             </>
           )}
         </Carousel>
       </CardHeader>
 
-      <CardContent className="p-5 flex-grow bg-gradient-to-b from-slate-900 to-slate-950">
-        <CardTitle className="text-xl font-bold mb-2 line-clamp-2 min-h-[56px] text-white group-hover:text-cyan-400 transition-colors">
+      <CardContent className="p-5">
+        <CardTitle className="text-xl font-bold mb-2 text-gray-900">
           {vehicle.year} {vehicle.make} {vehicle.model}
         </CardTitle>
-        <div className="mb-4">
-          <p className="text-3xl font-extrabold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-            {formatPrice(vehicle.price)}
-          </p>
-        </div>
+        <p className="text-3xl font-bold text-blue-600 mb-4">
+          {formatPrice(vehicle.price)}
+        </p>
 
-        <div className="grid grid-cols-2 gap-3">
-          <div className="flex items-center gap-2 p-2 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-cyan-500/50 transition-all">
-            <div className="p-1.5 bg-cyan-500/10 rounded">
-              <Gauge className="h-4 w-4 text-cyan-400" />
-            </div>
-            <span className="text-sm text-slate-300">{formatMileage(vehicle.mileage)} mi</span>
+        <div className="grid grid-cols-2 gap-3 text-sm text-gray-700">
+          <div className="flex items-center gap-2">
+            <Gauge className="h-4 w-4 text-gray-500" />
+            <span>{formatMileage(vehicle.mileage)} mi</span>
           </div>
-          <div className="flex items-center gap-2 p-2 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-cyan-500/50 transition-all">
-            <div className="p-1.5 bg-cyan-500/10 rounded">
-              <Fuel className="h-4 w-4 text-cyan-400" />
-            </div>
-            <span className="text-sm text-slate-300">{vehicle.fuelType}</span>
+          <div className="flex items-center gap-2">
+            <Fuel className="h-4 w-4 text-gray-500" />
+            <span>{vehicle.fuelType}</span>
           </div>
-          <div className="flex items-center gap-2 p-2 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-cyan-500/50 transition-all">
-            <div className="p-1.5 bg-cyan-500/10 rounded">
-              <Car className="h-4 w-4 text-cyan-400" />
-            </div>
-            <span className="text-sm text-slate-300">{vehicle.transmission}</span>
+          <div className="flex items-center gap-2">
+            <Car className="h-4 w-4 text-gray-500" />
+            <span>{vehicle.transmission}</span>
           </div>
-          <div className="flex items-center gap-2 p-2 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-cyan-500/50 transition-all">
-            <div className="p-1.5 bg-cyan-500/10 rounded">
-              <Calendar className="h-4 w-4 text-cyan-400" />
-            </div>
-            <span className="text-sm text-slate-300">{vehicle.year}</span>
+          <div className="flex items-center gap-2">
+            <Calendar className="h-4 w-4 text-gray-500" />
+            <span>{vehicle.year}</span>
           </div>
         </div>
       </CardContent>
 
-      <CardFooter className="p-5 pt-0 flex justify-between gap-3 bg-slate-950">
+      <CardFooter className="p-5 pt-0 flex gap-3">
         <Button 
-          className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold shadow-lg shadow-cyan-900/30 hover:shadow-cyan-900/50 hover:scale-105 transition-all duration-300" 
+          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white" 
           onClick={() => onViewDetails(vehicle.id)}
         >
-          <Maximize className="h-4 w-4 mr-2" />
           View Details
         </Button>
         <Button 
-          className="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold border border-slate-700 hover:border-cyan-500/50 hover:text-white shadow-lg hover:scale-105 transition-all duration-300" 
+          className="flex-1 bg-orange-500 hover:bg-orange-600 text-white" 
           onClick={() => onScheduleTest(vehicle.id)}
         >
-          <Plus className="h-4 w-4 mr-2" />
           Schedule Test
         </Button>
       </CardFooter>
@@ -149,5 +124,4 @@ const VehicleCard = ({ vehicle, onViewDetails, onScheduleTest }: VehicleCardProp
 
 export default VehicleCard;
 
-// Re-export the Vehicle type
 export type { Vehicle };
