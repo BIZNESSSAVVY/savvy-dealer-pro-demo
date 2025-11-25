@@ -88,7 +88,7 @@ const Footer = () => {
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 uppercase tracking-wide mb-0.5">Phone</p>
-                    <p className="text-slate-200 text-sm font-medium">(302) 284-7114</p>
+                    <p className="text-slate-200 text-sm font-medium">(317)-741-7443</p>
                   </div>
                 </div>
               </div>
@@ -100,7 +100,7 @@ const Footer = () => {
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 uppercase tracking-wide mb-0.5">Email</p>
-                    <p className="text-slate-200 text-sm font-medium break-all">ceceauto@yahoo.com</p>
+                    <p className="text-slate-200 text-sm font-medium break-all">sales@savvyordersystems.com</p>
                   </div>
                 </div>
               </div>
