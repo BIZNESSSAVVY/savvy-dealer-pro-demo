@@ -8,7 +8,7 @@ const About = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl font-bold text-white mb-6">
-            About Savvy D's
+            About Savvy DS
           </h1>
           <p className="text-xl text-white max-w-3xl mx-auto">
             Quality vehicles and exceptional service in Indianapolis
@@ -25,20 +25,20 @@ const About = () => {
               </h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Savvy D's has been serving Indianapolis and surrounding communities with quality pre-owned vehicles and flexible financing solutions.
+                  Savvy DS has been serving Indianapolis and surrounding communities with quality pre-owned vehicles and flexible financing solutions.
                 </p>
                 <p>
                   We specialize in helping families find reliable transportation with financing options that work for their budget. Our straightforward approach and commitment to customer service have made us a trusted name in the community.
                 </p>
                 <p>
-                  At Savvy D's, we believe everyone deserves access to dependable transportation. That's why we work hard to provide quality vehicles and financing solutions tailored to your needs.
+                  At Savvy DS, we believe everyone deserves access to dependable transportation. That's why we work hard to provide quality vehicles and financing solutions tailored to your needs.
                 </p>
               </div>
             </div>
             <div>
               <img
                 src="cece.jfif"
-                alt="Savvy D's dealership"
+                alt="Savvy DS dealership"
                 className="rounded-lg w-full shadow-lg"
               />
             </div>
@@ -117,7 +117,7 @@ const About = () => {
             Ready to Find Your Next Vehicle?
           </h2>
           <p className="text-xl text-gray-600 mb-12">
-            Visit us today and discover why Indianapolis trusts Savvy D's
+            Visit us today and discover why Indianapolis trusts Savvy DS
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link to="/inventory">

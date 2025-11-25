@@ -90,7 +90,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Get in touch with Savvy D's today
+            Get in touch with Savvy DS today
           </p>
         </div>
 

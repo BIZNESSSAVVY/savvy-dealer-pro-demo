@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Savvy D's
+              Savvy DS
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               Premium automotive solutions powered by Savvy OS
@@ -61,7 +61,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-200 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-600 text-sm">
-            &copy; {new Date().getFullYear()} Savvy D's. All rights reserved.
+            &copy; {new Date().getFullYear()} Savvy DS. All rights reserved.
           </p>
           <a
             href="https://savvyordersystems.com"

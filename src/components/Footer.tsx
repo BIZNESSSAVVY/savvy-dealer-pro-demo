@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">
-                Savvy D's
+                Savvy DS
               </h3>
               <div className="flex items-center gap-2 mb-4">
                 <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
@@ -145,7 +145,7 @@ const Footer = () => {
         <div className="border-t border-slate-700/50 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-400 text-sm">
-              &copy; {new Date().getFullYear()} Savvy D's. All rights reserved.
+              &copy; {new Date().getFullYear()} Savvy DS. All rights reserved.
             </p>
             
             <div className="flex items-center gap-2 text-sm">

@@ -9,7 +9,7 @@ const DealershipHighlight: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-gray-900 mb-4">
-            Visit Savvy D's
+            Visit Savvy DS
           </h2>
           <p className="text-xl text-gray-600">
             Your trusted dealership in Indianapolis
@@ -20,7 +20,7 @@ const DealershipHighlight: React.FC = () => {
           <div>
             <img
               src={dealershipImage}
-              alt="Savvy D's Dealership"
+              alt="Savvy DS Dealership"
               className="w-full h-[500px] object-cover rounded-lg"
             />
           </div>

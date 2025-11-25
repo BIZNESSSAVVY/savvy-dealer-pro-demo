@@ -65,7 +65,7 @@ export default function Chatbot() {
     return [
       {
         id: 'init-1',
-        text: "Hi! I'm here to help you with questions about Cece Auto. Ask me about financing, hours, warranties, or anything else!",
+        text: "Hi! I'm here to help you with questions about Savvy Ds. Ask me about financing, hours, warranties, or anything else!",
         sender: 'bot',
         timestamp: new Date().toISOString(),
       },
@@ -244,7 +244,7 @@ export default function Chatbot() {
     setMessages([
       {
         id: 'init-1',
-        text: "Hi! I'm here to help you with questions about Cece Auto. Ask me about financing, hours, warranties, or anything else!",
+        text: "Hi! I'm here to help you with questions about Savvy Ds. Ask me about financing, hours, warranties, or anything else!",
         sender: 'bot',
         timestamp: new Date().toISOString(),
       },
@@ -278,7 +278,7 @@ export default function Chatbot() {
           <DialogHeader className="p-3 border-b bg-primary text-primary-foreground">
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-3">
-                <span className="font-semibold">Chat with Cece Auto</span>
+                <span className="font-semibold">Chat with Savvy Ds</span>
                 <span className="text-xs opacity-80">Premium</span>
               </div>
 
@@ -317,7 +317,7 @@ export default function Chatbot() {
                     className={`flex items-start gap-3 ${
                       message.sender === 'user' ? 'flex-row-reverse' : ''
                     }`}
-                    aria-label={`${message.sender === 'user' ? 'You' : 'Cece Auto'} at ${formatTime(
+                    aria-label={`${message.sender === 'user' ? 'You' : 'Savvy Ds'} at ${formatTime(
                       message.timestamp
                     )}`}
                   >
@@ -488,7 +488,7 @@ export default function Chatbot() {
                 </Button>
               </div>
               <div className="mt-2 text-xs opacity-70 flex items-center justify-between">
-                <div>Powered by Cece Auto • Secure</div>
+                <div>Powered by Savvy Ds • Secure</div>
                 <div className="opacity-60">Tip: try "Financing" or "Contact"</div>
               </div>
             </div>
